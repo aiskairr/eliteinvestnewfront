@@ -1,250 +1,99 @@
 import React from 'react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { X, Bell, HelpCircle, User, Cloud, ShoppingCart, Package, Users, BarChart3, CreditCard, RefreshCw, Smartphone, Menu } from 'lucide-react'
-import { Sidebar } from '@/components/Sidebar'
+import { ChevronDown, TrendingDown, TrendingUp } from 'lucide-react'
 
-
-interface Helpcard {
-    title?: string;
-    description: string;
-    buttonText?: string;
-    showAvatar?: boolean;
-}
-interface FeatureCard {
-    icon: React.ReactNode;
-    iconBg: string;
-    label?: string;
-    title: string;
-    buttonText: string;
-}
-interface NavItem {
-    icon: React.ReactNode;
-    label: string;
-}
-interface SidebarItem {
-    icon: React.ReactNode;
-    label: string;
-    active?: boolean;
+function MetricCard({ title, value, trend, positive }: { title: string; value: string; trend: string; positive?: boolean }) {
+  return (
+    <Card>
+      <CardContent className="pt-5">
+        <div className="text-sm text-gray-600 mb-4">{title}</div>
+        <div className="flex items-center gap-3">
+          <div className="text-3xl font-semibold text-gray-900">{value}</div>
+          <div className={`flex items-center gap-1 text-xs ${positive ? 'text-green-600' : 'text-red-600'}`}>
+            {positive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+            <span>{trend}</span>
+          </div>
+        </div>
+        <div className="mt-4 text-xs text-blue-600 flex items-center gap-1">
+          За месяц <ChevronDown className="w-3 h-3" />
+        </div>
+      </CardContent>
+    </Card>
+  )
 }
 
+function SalesBars() {
+  const bars = [40, 90, 60, 85, 55, 92, 70, 88, 62, 78, 45, 90]
+  return (
+    <div className="flex h-48 items-end gap-4">
+      {bars.map((h, i) => (
+        <div key={i} className="flex-1 flex items-end">
+          <div className="w-4 h-full bg-gray-100 rounded-md relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 right-0 mx-auto w-4 rounded-md bg-orange-500" style={{ height: `${h}%` }} />
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
 
-const MainPage = () => {
-   return (
-        <div className="min-h-screen bg-gray-50 flex">
-            {/* Sidebar */}
-            <Sidebar activeIndex={0} />
+export default function MainPage() {
+  return (
+    <div className="p-6">
+      <div className="text-sm text-gray-500 mb-4">Главная</div>
 
-            {/* Main Content Area */}
-            <div className="flex-1 flex flex-col">
-                {/* Top Bar */}
-                <header className="bg-white border-b px-6 py-4 flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <Menu className="w-6 h-6 text-gray-600 cursor-pointer" />
-                        <h1 className="text-lg font-semibold text-gray-800">Главная страница</h1>
-                    </div>
-                    
-                    <div className="flex items-center gap-4">
-                        <Button variant="ghost" size="icon">
-                            <Bell className="w-5 h-5 text-gray-600" />
-                        </Button>
-                        <Button variant="ghost" size="icon">
-                            <HelpCircle className="w-5 h-5 text-gray-600" />
-                        </Button>
-                    </div>
-                </header>
+      <h2 className="text-2xl font-semibold text-gray-900 mb-4">Метрика</h2>
 
-                {/* Secondary Navigation */}
-                 <div className="bg-white border-b">
-                    <div className="px-6 py-3 flex gap-6">
-                        <a href="/main/Indicators" className="text-blue-500 border-b-2 border-blue-500 pb-2 text-sm font-medium">
-                            Показатели
-                        </a>
-                        <a href="#" className="text-gray-600 hover:text-blue-500 pb-2 text-sm">
-                            Документы
-                        </a>
-                        <a href="#" className="text-gray-600 hover:text-blue-500 pb-2 text-sm">
-                            Корзина
-                        </a>
-                        <a href="#" className="text-gray-600 hover:text-blue-500 pb-2 text-sm">
-                            Аудит
-                        </a>
-                        <a href="#" className="text-gray-600 hover:text-blue-500 pb-2 text-sm">
-                            Файлы
-                        </a>
-                        <a href="#" className="text-gray-600 hover:text-blue-500 pb-2 text-sm">
-                            Начало работы
-                        </a>
-                    </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+        <MetricCard title="Активные сделки" value="238" trend="12.5 %" positive />
+        <MetricCard title="Выручка" value="238" trend="12.5 %" positive />
+        <MetricCard title="Конверсия" value="238" trend="12.5 %" />
+        <MetricCard title="Новые клиенты" value="238" trend="12.5 %" positive />
+      </div>
+
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mb-6">
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between py-4">
+            <CardTitle className="text-base font-medium">График продаж и выручки</CardTitle>
+            <Badge variant="secondary" className="text-xs font-normal">За месяц</Badge>
+          </CardHeader>
+          <CardContent>
+            <SalesBars />
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="py-4">
+            <CardTitle className="text-base font-medium">Активности</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {[1,2,3].map((i) => (
+                <div key={i} className="flex items-start gap-3 rounded-lg border border-gray-200 px-3 py-2">
+                  <div className="w-5 h-5 rounded-full bg-green-100 border border-green-200 flex items-center justify-center">
+                    <div className="w-2 h-2 bg-green-500 rounded-full" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-800">Монтаж кровли на объекте "ЖК Солнечный"</div>
+                    <div className="text-[11px] text-gray-400">21 апреля 2025</div>
+                  </div>
                 </div>
-
-                {/* Scrollable Content */}
-                <div className="flex-1 overflow-auto">
-                    <div className="max-w-7xl mx-auto px-8 py-10">
-                        {/* Header */}
-                        <div className="flex items-start justify-between mb-12">
-                            <div>
-                                <h1 className="text-4xl font-bold text-blue-900 mb-2">
-                                    Заголовок страницы
-                                </h1>
-                                <p className="text-gray-600">
-                                    Описание страницы
-                                </p>
-                            </div>
-                            <div className="text-right">
-                                <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white">
-                                    Действие
-                                </Button>
-                                <p className="text-xs text-gray-500 mt-2">
-                                    Дополнительная информация
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Feature Cards */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                            <FeatureCard
-                                icon={<CreditCard className="w-10 h-10 text-white" />}
-                                iconBg="bg-gradient-to-br from-blue-400 to-blue-600"
-                                label="Категория 1"
-                                title="Заголовок карточки"
-                                buttonText="Кнопка действия"
-                            />
-                            <FeatureCard
-                                icon={<RefreshCw className="w-10 h-10 text-white" />}
-                                iconBg="bg-gradient-to-br from-green-400 to-green-600"
-                                label="Категория 2"
-                                title="Заголовок карточки"
-                                buttonText="Кнопка действия"
-                            />
-                            <FeatureCard
-                                icon={<Smartphone className="w-10 h-10 text-white" />}
-                                iconBg="bg-gradient-to-br from-blue-300 to-blue-500"
-                                label="Категория 3"
-                                title="Заголовок карточки"
-                                buttonText="Кнопка действия"
-                            />
-                        </div>
-
-                        {/* Help Section */}
-                        <div className="mb-12">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-2xl font-bold text-blue-900">
-                                    Секция помощи
-                                </h2>
-                                <Button variant="ghost" size="sm" className="text-gray-400 hover:text-gray-600">
-                                    Закрыть <X className="w-4 h-4 ml-2" />
-                                </Button>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                <HelpCard
-                                    title="Опция 1"
-                                    description="Описание первой опции"
-                                    buttonText="Кнопка"
-                                    showAvatar
-                                />
-                                <HelpCard
-                                    title="Опция 2"
-                                    description="Описание второй опции"
-                                    buttonText="Кнопка"
-                                />
-                                <HelpCard
-                                    title="Опция 3"
-                                    description="Описание третьей опции"
-                                    buttonText="Кнопка"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Overview Section */}
-                        <Card>
-                            <CardHeader>
-                                <CardTitle className="text-2xl text-blue-900">
-                                    Обзор возможностей
-                                </CardTitle>
-                                <CardDescription>
-                                    Описание раздела с возможностями
-                                </CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                    <div>
-                                        <h4 className="font-semibold text-blue-900 mb-2">
-                                            Функция 1
-                                        </h4>
-                                        <p className="text-sm text-gray-600">
-                                            Описание первой функции
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-blue-900 mb-2">
-                                            Функция 2
-                                        </h4>
-                                        <p className="text-sm text-gray-600">
-                                            Описание второй функции
-                                        </p>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-                    </div>
-                </div>
+              ))}
+              <div className="text-xs text-blue-600 cursor-pointer">Показать все</div>
             </div>
-        </div>
-    )
-}
-
-const NavItem = ({ icon, label }: NavItem) => {
-    return (
-        <div className="flex flex-col items-center gap-1 px-5 py-3 cursor-pointer hover:bg-blue-600 transition-colors border-r border-blue-400/30">
-            {icon}
-            <span className="text-xs">{label}</span>
-        </div>
-    )
-}
-
-const FeatureCard = ({ icon, iconBg, label, title, buttonText }: FeatureCard) => {
-    return (
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-            <CardContent className="pt-6">
-                <div className={`w-20 h-20 ${iconBg} rounded-xl flex items-center justify-center mb-4`}>
-                    {icon}
-                </div>
-                <Badge variant="secondary" className="mb-3 text-xs">
-                    {label}
-                </Badge>
-                <h3 className="font-semibold text-blue-900 mb-4 text-lg leading-tight">
-                    {title}
-                </h3>
-                <Button variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white">
-                    {buttonText}
-                </Button>
-            </CardContent>
+          </CardContent>
         </Card>
-    )
-}
+      </div>
 
-const HelpCard = ({ title, description, buttonText, showAvatar }: Helpcard) => {
-    return (
-        <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="pt-6">
-                {showAvatar && (
-                    <div className="w-16 h-16 bg-blue-100 rounded-full mb-4"></div>
-                )}
-                <h3 className="font-semibold text-blue-900 mb-3 text-lg">
-                    {title}
-                </h3>
-                <p className="text-sm text-gray-600 mb-4 leading-relaxed">
-                    {description}
-                </p>
-                <Button variant="outline" className="w-full border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white">
-                    {buttonText}
-                </Button>
-            </CardContent>
-        </Card>
-    )
+      <Card>
+        <CardHeader className="py-4">
+          <CardTitle className="text-base font-medium">Воронка продаж</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="h-72 bg-gray-50 rounded-lg border border-dashed border-gray-200" />
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
-
-export default MainPage

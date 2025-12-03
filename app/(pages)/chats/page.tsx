@@ -62,60 +62,18 @@ const ChatsPage = () => {
     const [chats] = useState<Chat[]>([
         {
             id: '1',
-            clientName: 'Алексей Иванов',
-            clientAvatar: 'AI',
-            lastMessage: 'Спасибо за информацию!',
-            timestamp: '10:30',
-            unread: 2,
-            messenger: 'whatsapp',
-            online: true,
-            messages: [
-                { id: '1', text: 'Здравствуйте! Интересует ваш продукт', sender: 'client', timestamp: '10:15', status: 'read' },
-                { id: '2', text: 'Добрый день! Конечно, расскажу подробнее', sender: 'user', timestamp: '10:16', status: 'read' },
-                { id: '3', text: 'Какова стоимость?', sender: 'client', timestamp: '10:28', status: 'read' },
-                { id: '4', text: 'Цена начинается от 5000 руб', sender: 'user', timestamp: '10:29', status: 'delivered' },
-                { id: '5', text: 'Спасибо за информацию!', sender: 'client', timestamp: '10:30', status: 'sent' }
-            ]
-        },
-        {
-            id: '2',
-            clientName: 'Мария Петрова',
-            clientAvatar: 'МП',
-            lastMessage: 'Когда можем встретиться?',
-            timestamp: '09:45',
-            unread: 0,
+            clientName: 'ByeWind',
+            clientAvatar: 'BW',
+            lastMessage: 'Печатает…',
+            timestamp: '19:28',
+            unread: 12,
             messenger: 'telegram',
-            online: false,
-            messages: [
-                { id: '1', text: 'Добрый день!', sender: 'client', timestamp: '09:40', status: 'read' },
-                { id: '2', text: 'Здравствуйте!', sender: 'user', timestamp: '09:41', status: 'read' },
-                { id: '3', text: 'Когда можем встретиться?', sender: 'client', timestamp: '09:45', status: 'read' }
-            ]
-        },
-        {
-            id: '3',
-            clientName: 'Дмитрий Соколов',
-            clientAvatar: 'ДС',
-            lastMessage: 'Отправил документы',
-            timestamp: 'Вчера',
-            unread: 1,
-            messenger: 'viber',
-            online: false,
-            messages: [
-                { id: '1', text: 'Отправил документы', sender: 'client', timestamp: 'Вчера 18:20', status: 'sent' }
-            ]
-        },
-        {
-            id: '4',
-            clientName: 'Анна Смирнова',
-            clientAvatar: 'АС',
-            lastMessage: 'Все понятно, спасибо!',
-            timestamp: '2 дня назад',
-            unread: 0,
-            messenger: 'instagram',
             online: true,
             messages: [
-                { id: '1', text: 'Все понятно, спасибо!', sender: 'client', timestamp: '2 дня назад', status: 'read' }
+                { id: 'm1', text: 'Привет, Айбек! Клиент по офису на Масалиева подтвердил смету, можно переводить в этап "Согласование".', sender: 'user', timestamp: '12:35', status: 'read' },
+                { id: 'm2', text: 'Окей, и не забудь отметить тег "Срочно", они хотят начать в начале ноября.', sender: 'user', timestamp: '12:35', status: 'delivered' },
+                { id: 'm3', text: 'Отлично 🙌 Я добавлю договор и поставлю дедлайн на 28 октября.', sender: 'client', timestamp: '12:36', status: 'sent' },
+                { id: 'm4', text: 'Принято, сейчас сделаю.', sender: 'client', timestamp: '12:36', status: 'sent' },
             ]
         }
     ])
@@ -123,57 +81,22 @@ const ChatsPage = () => {
     const [clientCards] = useState<ClientCard[]>([
         {
             id: '1',
-            name: 'Алексей Иванов',
-            email: 'alexey.ivanov@email.com',
-            phone: '+7 (999) 123-45-67',
-            address: 'Москва, ул. Ленина, 10',
-            company: 'ООО "Техно"',
-            position: 'Директор',
-            notes: 'Постоянный клиент, заинтересован в новых продуктах',
-            lastContact: '2024-10-02',
-            tags: ['VIP', 'Постоянный клиент']
-        },
-        {
-            id: '2',
-            name: 'Мария Петрова',
-            email: 'maria.petrova@email.com',
-            phone: '+7 (999) 234-56-78',
-            address: 'Санкт-Петербург, Невский пр., 20',
-            company: 'ИП Петрова',
-            position: 'ИП',
-            notes: 'Новый клиент, рассматривает сотрудничество',
-            lastContact: '2024-10-02',
-            tags: ['Новый клиент', 'Потенциал']
-        },
-        {
-            id: '3',
-            name: 'Дмитрий Соколов',
-            email: 'dmitry.sokolov@email.com',
-            phone: '+7 (999) 345-67-89',
-            address: 'Екатеринбург, ул. Мира, 5',
-            company: 'АО "Строй+"',
-            position: 'Закупщик',
-            notes: 'Работает с нами 2 года',
-            lastContact: '2024-10-01',
-            tags: ['Постоянный клиент']
-        },
-        {
-            id: '4',
-            name: 'Анна Смирнова',
-            email: 'anna.smirnova@email.com',
-            phone: '+7 (999) 456-78-90',
-            address: 'Казань, ул. Баумана, 15',
-            company: 'ООО "Дизайн Студия"',
-            position: 'Владелец',
-            notes: 'Требует особого внимания к деталям',
-            lastContact: '2024-09-30',
-            tags: ['VIP', 'Дизайн']
+            name: 'ByeWind',
+            email: 'hello@byewind.com',
+            phone: '+996 700 700 700',
+            address: 'Бишкек, ул. Масалиева, 10',
+            company: 'ByeWind',
+            position: 'Компания',
+            notes: 'Активный диалог, запрашивали КП',
+            lastContact: '2025-10-21',
+            tags: ['Срочно', 'Важный']
         }
     ])
 
     const [selectedChat, setSelectedChat] = useState<Chat | null>(chats[0])
     const [searchQuery, setSearchQuery] = useState<string>('')
     const [messageInput, setMessageInput] = useState<string>('')
+    const [activeTab, setActiveTab] = useState<'all' | 'unread' | 'important'>('all')
     const [showClientCard, setShowClientCard] = useState<boolean>(false)
     const [selectedClientCard, setSelectedClientCard] = useState<ClientCard | null>(null)
 
@@ -187,7 +110,7 @@ const ChatsPage = () => {
         return colors[messenger]
     }
 
-    const getMessengerIcon = (messenger: Chat['messenger']): any => {
+    const getMessengerIcon = (): any => {
         return <MessageCircle className="h-4 w-4 text-white" />
     }
 
@@ -199,7 +122,6 @@ const ChatsPage = () => {
 
     const handleSendMessage = (): void => {
         if (!messageInput.trim() || !selectedChat) return
-        
         const newMessage: Message = {
             id: Date.now().toString(),
             text: messageInput,
@@ -207,7 +129,6 @@ const ChatsPage = () => {
             timestamp: new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' }),
             status: 'sent'
         }
-        
         selectedChat.messages.push(newMessage)
         setMessageInput('')
     }
@@ -220,185 +141,168 @@ const ChatsPage = () => {
         }
     }
 
-    const filteredChats = chats.filter(chat => 
-        chat.clientName.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+    const filteredChats = chats
+        .filter(chat => chat.clientName.toLowerCase().includes(searchQuery.toLowerCase()))
+        .filter(chat => {
+            if (activeTab === 'unread') return chat.unread > 0
+            if (activeTab === 'important') return true
+            return true
+        })
 
     return (
-        <div className="min-h-screen bg-gray-50 p-4">
-            <div className="max-w-7xl mx-auto">
-                <div className="mb-6">
-                    <h1 className="text-3xl font-bold text-black">Чаты</h1>
-                    <p className="text-gray-600 mt-2">Общение с клиентами через мессенджеры</p>
+        <div className="p-6">
+            <div className="mb-4">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-3">Сообщения</h2>
+               
+            </div>
+
+            <div className="grid grid-cols-12 gap-4 h-[calc(100vh-220px)]">
+                {/* Список чатов */}
+                <div className="col-span-3 border-gray-200 flex flex-col rounded-xl overflow-hidden">
+                <div className="flex items-center gap-6 text-sm">
+                    <button onClick={() => setActiveTab('all')} className={`${activeTab==='all'?'text-black font-medium border-b-2 border-black':'text-gray-500'} pb-1`}>Все <span className="text-orange-500 ml-1">{chats.length}</span></button>
+                    <button onClick={() => setActiveTab('unread')} className={`${activeTab==='unread'?'text-black font-medium border-b-2 border-black':'text-gray-500'} pb-1`}>Непрочитанные <span className="text-orange-500 ml-1">{chats.filter(c=>c.unread>0).length}</span></button>
+                    <button onClick={() => setActiveTab('important')} className={`${activeTab==='important'?'text-black font-medium border-b-2 border-black':'text-gray-500'} pb-1`}>Важные <span className="text-orange-500 ml-1">2</span></button>
                 </div>
 
-                <div className="grid grid-cols-12 gap-4 h-[calc(100vh-180px)]">
-                    {/* Список чатов */}
-                    <Card className="col-span-4 border-2 border-gray-200 flex flex-col">
-                        <CardHeader className="border-b border-gray-200">
-                            <div className="relative">
-                                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                                <Input
-                                    placeholder="Поиск по чатам..."
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    className="pl-10"
-                                />
-                            </div>
-                        </CardHeader>
+                    <CardContent className="p-0 pt-2 overflow-y-auto flex-1 m-top-1">
+                        {filteredChats.map(chat => (
+                            <div
+                                key={chat.id}
+                                onClick={() => setSelectedChat(chat)}
+                                className={`px-4 py-3 rounded-sm cursor-pointer hover:bg-gray-50 border-b border-gray-100 transition-colors ${
+                                    selectedChat?.id === chat.id ? 'bg-[#0000000A]' : ''
+                                }`}
+                            >
+                                <div className="flex items-start gap-3">
+                                    <div className="relative">
+                                        <Avatar className="h-9 w-9 bg-gray-300 flex items-center justify-center text-xs font-semibold">
+                                            {chat.clientAvatar}
+                                        </Avatar>
+                                        <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white ${
+                                            chat.online ? 'bg-green-500' : 'bg-gray-400'
+                                        }`} />
+                                        <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center ${getMessengerColor(chat.messenger)}`}>
+                                            {getMessengerIcon()}
+                                        </div>
+                                    </div>
 
-                        <CardContent className="p-0 overflow-y-auto flex-1">
-                            {filteredChats.map(chat => (
-                                <div
-                                    key={chat.id}
-                                    onClick={() => setSelectedChat(chat)}
-                                    className={`p-4 cursor-pointer hover:bg-gray-50 border-b border-gray-100 transition-colors ${
-                                        selectedChat?.id === chat.id ? 'bg-blue-50' : ''
-                                    }`}
-                                >
-                                    <div className="flex items-start gap-3">
+                                    <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between mb-1">
+                                            <h3 className="font-medium text-[13px] truncate">{chat.clientName}</h3>
+                                            <span className="text-[11px] text-gray-500">{chat.timestamp}</span>
+                                        </div>
+                                        <p className="text-[12px] text-gray-600 truncate">{selectedChat?.id===chat.id? 'Печатает…' : chat.lastMessage}</p>
+                                    </div>
+
+                                    {chat.unread > 0 && (
+                                        <Badge className="bg-blue-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-[10px] p-0">
+                                            {chat.unread}
+                                        </Badge>
+                                    )}
+                                </div>
+                            </div>
+                        ))}
+                    </CardContent>
+                </div>
+
+                {/* Окно чата */}
+                <Card className="col-span-9 border bg-[#FAFAFA] border-gray-200 flex flex-col rounded-xl overflow-hidden">
+                    {selectedChat ? (
+                        <>
+                            {/* Хедер чата */}
+                            <CardHeader className=" py-3">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
                                         <div className="relative">
-                                            <Avatar className="h-12 w-12 bg-gray-300 flex items-center justify-center text-sm font-semibold">
-                                                {chat.clientAvatar}
+                                            <Avatar className="h-8 w-8 bg-gray-300 flex items-center justify-center text-xs font-semibold">
+                                                {selectedChat.clientAvatar}
                                             </Avatar>
                                             <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white ${
-                                                chat.online ? 'bg-green-500' : 'bg-gray-400'
+                                                selectedChat.online ? 'bg-green-500' : 'bg-gray-400'
                                             }`} />
-                                            <div className={`absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center ${getMessengerColor(chat.messenger)}`}>
-                                                {getMessengerIcon(chat.messenger)}
-                                            </div>
                                         </div>
-
-                                        <div className="flex-1 min-w-0">
-                                            <div className="flex items-center justify-between mb-1">
-                                                <h3 className="font-semibold text-sm truncate">{chat.clientName}</h3>
-                                                <span className="text-xs text-gray-500">{chat.timestamp}</span>
-                                            </div>
-                                            <p className="text-sm text-gray-600 truncate">{chat.lastMessage}</p>
-                                        </div>
-
-                                        {chat.unread > 0 && (
-                                            <Badge className="bg-blue-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs p-0">
-                                                {chat.unread}
-                                            </Badge>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
-                        </CardContent>
-                    </Card>
-
-                    {/* Окно чата */}
-                    <Card className="col-span-8 border-2 border-gray-200 flex flex-col">
-                        {selectedChat ? (
-                            <>
-                                {/* Хедер чата */}
-                                <CardHeader className="border-b border-gray-200">
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div className="relative">
-                                                <Avatar className="h-10 w-10 bg-gray-300 flex items-center justify-center text-sm font-semibold">
-                                                    {selectedChat.clientAvatar}
-                                                </Avatar>
-                                                <div className={`absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-white ${
-                                                    selectedChat.online ? 'bg-green-500' : 'bg-gray-400'
-                                                }`} />
-                                            </div>
-                                            <div>
-                                                <h2 className="font-semibold">{selectedChat.clientName}</h2>
-                                                <p className="text-xs text-gray-500">
-                                                    {selectedChat.online ? 'В сети' : 'Не в сети'}
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex items-center gap-2">
-                                            <Button
-                                                variant="outline"
-                                                size="sm"
-                                                onClick={() => openClientCard(selectedChat.id)}
-                                                className="border-2 border-blue-500 text-blue-600 hover:bg-blue-50"
-                                            >
-                                                <User className="h-4 w-4 mr-2" />
-                                                Карточка клиента
-                                            </Button>
-                                            <Button variant="ghost" size="sm">
-                                                <Phone className="h-5 w-5" />
-                                            </Button>
-                                            <Button variant="ghost" size="sm">
-                                                <Video className="h-5 w-5" />
-                                            </Button>
-                                            <Button variant="ghost" size="sm">
-                                                <MoreVertical className="h-5 w-5" />
-                                            </Button>
+                                        <div>
+                                            <h2 className="font-medium text-sm">{selectedChat.clientName}</h2>
+                                            <p className="text-[11px] text-gray-500">
+                                                {selectedChat.online ? 'В сети' : 'Не в сети'}
+                                            </p>
                                         </div>
                                     </div>
-                                </CardHeader>
 
-                                {/* Сообщения */}
-                                <CardContent className="flex-1 overflow-y-auto p-4 space-y-4">
-                                    {selectedChat.messages.map(message => (
-                                        <div
-                                            key={message.id}
-                                            className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                                        >
-                                            <div className={`max-w-[70%] ${
-                                                message.sender === 'user' 
-                                                    ? 'bg-blue-500 text-white' 
-                                                    : 'bg-gray-200 text-black'
-                                            } rounded-lg p-3`}>
-                                                <p className="text-sm">{message.text}</p>
-                                                <div className="flex items-center gap-1 justify-end mt-1">
-                                                    <span className={`text-xs ${
-                                                        message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-                                                    }`}>
-                                                        {message.timestamp}
-                                                    </span>
-                                                    {message.sender === 'user' && getMessageStatus(message.status)}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </CardContent>
-
-                                {/* Ввод сообщения */}
-                                <div className="border-t border-gray-200 p-4">
-                                    <div className="flex gap-2">
-                                        <Textarea
-                                            placeholder="Введите сообщение..."
-                                            value={messageInput}
-                                            onChange={(e) => setMessageInput(e.target.value)}
-                                            onKeyPress={(e) => {
-                                                if (e.key === 'Enter' && !e.shiftKey) {
-                                                    e.preventDefault()
-                                                    handleSendMessage()
-                                                }
-                                            }}
-                                            rows={1}
-                                            className="flex-1 resize-none"
-                                        />
-                                        <Button 
-                                            onClick={handleSendMessage}
-                                            className="bg-blue-500 hover:bg-blue-600"
-                                        >
-                                            <Send className="h-5 w-5" />
+                                    <div className="flex items-center gap-2">
+                                        
+                                        <Button variant="ghost" size="sm">
+                                            <Phone className="h-5 w-5" />
+                                        </Button>
+                                       
+                                        <Button variant="ghost" size="sm">
+                                            <Search className="h-5 w-5" />
+                                        </Button>
+                                        <Button variant="ghost" size="sm">
+                                            <MoreVertical className="h-5 w-5" />
                                         </Button>
                                     </div>
                                 </div>
-                            </>
-                        ) : (
-                            <div className="flex-1 flex items-center justify-center text-gray-400">
-                                <div className="text-center">
-                                    <MessageCircle className="h-16 w-16 mx-auto mb-4" />
-                                    <p>Выберите чат для начала общения</p>
+                                <div className="text-[12px] text-gray-500 mt-1 ml-11">{selectedChat.clientName} — Печатает…</div>
+                            </CardHeader>
+
+                            {/* Сообщения */}
+                            <CardContent className="flex-1 bg-[#FAFAFA] overflow-y-auto p-6 space-y-3">
+                                {selectedChat.messages.map(message => (
+                                    <div
+                                        key={message.id}
+                                        className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                                    >
+                                        <div className={`max-w-[70%] ${message.sender === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-900'} rounded-2xl px-4 py-3`}>
+                                            <p className="text-[13px] leading-relaxed">{message.text}</p>
+                                            <div className="flex items-center gap-1 justify-end mt-1">
+                                                <span className={`text-[11px] ${message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'}`}>{message.timestamp}</span>
+                                                {message.sender === 'user' && getMessageStatus(message.status)}
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </CardContent>
+
+                            {/* Ввод сообщения */}
+                            <div className=" p-4">
+                                <div className="flex items-center gap-3 rounded-xl border border-gray-200 px-3 py-2 bg-white">
+                                    <Textarea
+                                        placeholder="Сообщение"
+                                        value={messageInput}
+                                        onChange={(e) => setMessageInput(e.target.value)}
+                                        onKeyPress={(e) => {
+                                            if (e.key === 'Enter' && !e.shiftKey) {
+                                                e.preventDefault()
+                                                handleSendMessage()
+                                            }
+                                        }}
+                                        rows={1}
+                                        className="flex-1 resize-none border-none focus-visible:ring-0 p-0"
+                                    />
+                                    <Button 
+                                        onClick={handleSendMessage}
+                                        size="icon"
+                                        className="bg-blue-500 hover:bg-blue-600 rounded-full h-9 w-9"
+                                        aria-label="Отправить"
+                                    >
+                                        <Send className="h-4 w-4" />
+                                    </Button>
                                 </div>
                             </div>
-                        )}
-                    </Card>
-                </div>
+                        </>
+                    ) : (
+                        <div className="flex-1 flex items-center justify-center text-gray-400">
+                            <div className="text-center">
+                                <MessageCircle className="h-16 w-16 mx-auto mb-4" />
+                                <p>Выберите чат для начала общения</p>
+                            </div>
+                        </div>
+                    )}
+                </Card>
             </div>
 
-            {/* Модальное окно карточки клиента */}
             {showClientCard && selectedClientCard && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
                     <Card className="w-full max-w-2xl border-2 border-gray-300 max-h-[90vh] overflow-y-auto">
@@ -416,7 +320,6 @@ const ChatsPage = () => {
                         </CardHeader>
 
                         <CardContent className="p-6 space-y-6">
-                            {/* Основная информация */}
                             <div>
                                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                                     <User className="h-5 w-5" />
@@ -435,7 +338,6 @@ const ChatsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Контактная информация */}
                             <div>
                                 <h3 className="text-lg font-semibold mb-4">Контакты</h3>
                                 <div className="space-y-3">
@@ -463,7 +365,6 @@ const ChatsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Компания */}
                             <div>
                                 <h3 className="text-lg font-semibold mb-4">Компания</h3>
                                 <div className="flex items-center gap-3">
@@ -475,7 +376,6 @@ const ChatsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Заметки */}
                             <div>
                                 <h3 className="text-lg font-semibold mb-4">Заметки</h3>
                                 <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">
@@ -483,7 +383,6 @@ const ChatsPage = () => {
                                 </p>
                             </div>
 
-                            {/* Теги */}
                             <div>
                                 <h3 className="text-lg font-semibold mb-4">Теги</h3>
                                 <div className="flex flex-wrap gap-2">
@@ -495,7 +394,6 @@ const ChatsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Последний контакт */}
                             <div>
                                 <div className="flex items-center gap-3 text-sm text-gray-600">
                                     <Clock className="h-4 w-4" />
@@ -503,7 +401,6 @@ const ChatsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Действия */}
                             <div className="flex gap-2 pt-4 border-t border-gray-200">
                                 <Button className="flex-1 bg-blue-500 hover:bg-blue-600">
                                     Редактировать
@@ -521,3 +418,4 @@ const ChatsPage = () => {
 }
 
 export default ChatsPage
+
