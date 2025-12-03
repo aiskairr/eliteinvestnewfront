@@ -1,7 +1,7 @@
 "use client"
 
+import { Suspense, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Deal, DealStatus, DealResult } from '@/types/deal'
@@ -13,7 +13,7 @@ const statusOptions: Record<DealStatus, string> = {
   closed: 'Закрыта',
 }
 
-export default function CreateDealPage() {
+function CreateDealPageInner() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const statusParam = (searchParams?.get('status') as DealStatus) || 'new'
@@ -205,5 +205,13 @@ export default function CreateDealPage() {
         </form>
       </div>
     </div>
+  )
+}
+
+export default function CreateDealPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Загрузка...</div>}>
+      <CreateDealPageInner />
+    </Suspense>
   )
 }
