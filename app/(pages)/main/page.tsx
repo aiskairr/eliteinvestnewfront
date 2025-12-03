@@ -75,7 +75,7 @@ export default function MainPage() {
                     <div className="w-2 h-2 bg-green-500 rounded-full" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm text-gray-800">Монтаж кровли на объекте "ЖК Солнечный"</div>
+                    <div className="text-sm text-gray-800">Монтаж кровли на объекте &quot;ЖК Солнечный&quot;</div>
                     <div className="text-[11px] text-gray-400">21 апреля 2025</div>
                   </div>
                 </div>

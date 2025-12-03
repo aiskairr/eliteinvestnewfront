@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Task, TaskStatus } from '@/types/task'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Plus, MoreVertical } from 'lucide-react'
+import { Plus } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { CreateTaskDialog } from './CreateTaskDialog'
 import { CreateColumnDialog } from './CreateColumnDialog'
@@ -159,17 +159,6 @@ export function TaskBoardView({ tasks, onCreateTask }: TaskBoardViewProps) {
         setColumns([...columns, newColumn])
     }
 
-    const getPriorityColor = (priority: Task['priority']) => {
-        switch (priority) {
-            case 'low':
-                return 'text-green-600 bg-green-50'
-            case 'medium':
-                return 'text-yellow-600 bg-yellow-50'
-            case 'high':
-                return 'text-red-600 bg-red-50'
-        }
-    }
-
     return (
         <div className="flex gap-4 h-[calc(100vh-250px)] overflow-x-auto pb-4">
             {columns.map((column) => {
@@ -203,7 +192,7 @@ export function TaskBoardView({ tasks, onCreateTask }: TaskBoardViewProps) {
                         className="space-y-3 overflow-y-auto max-h-full"
                         onDragEnter={() => handleDragEnterColumn(column.id)}
                     >
-                        {column.tasks.map((task, index) => {
+                        {column.tasks.map((task) => {
                             const percentage = Math.round((task.progress.completed / task.progress.total) * 100)
 
                             const priorityText =

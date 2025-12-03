@@ -20,7 +20,6 @@ const LoginPage = () => {
     const [passwordPlaceholder, setPasswordPlaceholder] = useState('Введите пароль')
     const [showForgotPassword, setShowForgotPassword] = useState(false)
     const [phoneNumber, setPhoneNumber] = useState('+996 ')
-    const [isAnimating, setIsAnimating] = useState(false)
 
     // Проверка заполненности полей
     const isFormValid = login.trim() !== '' && password.trim() !== ''

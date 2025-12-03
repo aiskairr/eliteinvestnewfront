@@ -8,22 +8,16 @@ import { Badge } from '@/components/ui/badge'
 import { 
     Bell, 
     HelpCircle, 
-    User, 
-    Cloud, 
-    ShoppingCart, 
-    Package, 
-    Users, 
-    BarChart3, 
     Menu, 
     Search,
     Filter,
     Clock,
     FileText,
     Edit,
-    Trash2,
     Download,
     UserCheck,
-    Calendar
+    Calendar,
+    User
 } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { Sidebar } from '@/components/Sidebar';
@@ -94,18 +88,18 @@ const AuditPage = () => {
         }
     }
 
-   const STYLES = {
-  success: 'bg-green-100 text-green-800',
-  warning: 'bg-yellow-100 text-yellow-800',
-  danger:  'bg-red-100 text-red-800',
-  info:    'bg-blue-100 text-blue-800',
-} as any;
+    const STYLES = {
+        success: 'bg-green-100 text-green-800',
+        warning: 'bg-yellow-100 text-yellow-800',
+        danger:  'bg-red-100 text-red-800',
+        info:    'bg-blue-100 text-blue-800',
+    } as const
 
-type Status = keyof typeof STYLES; // 'success' | 'warning' | 'danger' | 'info'
+    type Status = keyof typeof STYLES
 
-function getStatusBadge(status: Status) {
-  return STYLES[status]; // Ок
-}
+    function getStatusBadge(status: Status) {
+        return STYLES[status]
+    }
 
 
     return (
@@ -247,13 +241,5 @@ function getStatusBadge(status: Status) {
         </div>
     )
 }
-
-interface SidebarItemProps {
-    icon: React.ReactNode
-    label: string
-    active?: boolean
-}
-
-
 
 export default AuditPage;

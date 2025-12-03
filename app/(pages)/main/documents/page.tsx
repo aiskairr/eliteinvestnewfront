@@ -2,9 +2,8 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Bell, HelpCircle, User, Cloud, ShoppingCart, Package, Users, BarChart3, Menu, Info, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Bell, HelpCircle, Menu, Info, ChevronLeft, ChevronRight } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Sidebar } from '@/components/Sidebar'
 
@@ -301,19 +300,6 @@ const MainPage = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
-
-const SidebarItem = ({ icon, label, active }: any) => {
-    return (
-        <div className={`flex items-center gap-3 px-6 py-3 cursor-pointer transition-colors ${
-            active 
-                ? 'bg-blue-800 border-r-4 border-blue-400' 
-                : 'hover:bg-blue-800/50'
-        }`}>
-            {icon}
-            <span className="text-sm font-medium">{label}</span>
         </div>
     )
 }

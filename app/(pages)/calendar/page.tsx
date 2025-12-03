@@ -29,11 +29,9 @@ function formatYearMonth(d: Date) {
 
 function monthMatrix(active: Date): Date[][] {
   const start = new Date(active.getFullYear(), active.getMonth(), 1)
-  const end = new Date(active.getFullYear(), active.getMonth() + 1, 0)
   const startDay = (start.getDay() + 6) % 7 // make Monday=0
-  const daysInMonth = end.getDate()
   const weeks: Date[][] = []
-  let current = new Date(start)
+  const current = new Date(start)
   current.setDate(current.getDate() - startDay)
   for (let w = 0; w < 6; w++) {
     const week: Date[] = []
@@ -128,5 +126,3 @@ export default function CalendarPage() {
     </div>
   )
 }
-
-

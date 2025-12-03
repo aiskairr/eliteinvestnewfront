@@ -7,14 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { 
     Bell, 
     HelpCircle, 
-    User, 
-    Cloud, 
-    ShoppingCart, 
-    Package, 
-    Users, 
-    BarChart3, 
     Menu, 
-    Info, 
     Trash2, 
     RotateCcw,
     Search,
@@ -209,13 +202,5 @@ const TrashPage = () => {
         </div>
     )
 }
-
-interface SidebarItemProps {
-    icon: React.ReactNode
-    label: string
-    active?: boolean
-}
-
-
 
 export default TrashPage

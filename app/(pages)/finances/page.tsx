@@ -7,7 +7,6 @@ import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Checkbox } from '@/components/ui/checkbox'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
-import { Avatar } from '@/components/ui/avatar'
 import { ChevronDown, MoreHorizontal, Plus, TrendingDown, TrendingUp, Upload } from 'lucide-react'
 
 type TxStatus = 'Оплачено' | 'Ожидает' | 'Просрочено'
@@ -157,6 +156,5 @@ export default function FinancesPage() {
     </div>
   )
 }
-
 
 

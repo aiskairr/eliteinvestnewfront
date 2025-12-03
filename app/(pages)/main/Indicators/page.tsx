@@ -2,18 +2,11 @@
 
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Bell, HelpCircle, User, Cloud, ShoppingCart, Package, Users, BarChart3, Menu, Info, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Bell, HelpCircle, Menu, Info, ChevronLeft, ChevronRight } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Sidebar } from '@/components/Sidebar';
 
-
-interface SidebarItem {
-    icon: React.ReactNode;
-    label: string;
-    active?: boolean;
-}
 
 
 const MainPage = () => {

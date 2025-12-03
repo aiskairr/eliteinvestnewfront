@@ -8,12 +8,6 @@ import { Badge } from '@/components/ui/badge'
 import { 
     Bell, 
     HelpCircle, 
-    User, 
-    Cloud, 
-    ShoppingCart, 
-    Package, 
-    Users, 
-    BarChart3, 
     Menu, 
     Search,
     Filter,
@@ -210,13 +204,5 @@ const FilesPage = () => {
         </div>
     )
 }
-
-interface SidebarItemProps {
-    icon: React.ReactNode
-    label: string
-    active?: boolean
-}
-
-
 
 export default FilesPage;

@@ -1,6 +1,5 @@
 import { Task } from '@/types/task'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Badge } from '@/components/ui/badge'
 import { Users, Briefcase } from 'lucide-react'
 
 interface TaskCardProps {

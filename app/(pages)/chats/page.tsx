@@ -13,7 +13,6 @@ import {
     Send, 
     Search, 
     Phone, 
-    Video, 
     MoreVertical,
     X,
     User,
@@ -110,11 +109,11 @@ const ChatsPage = () => {
         return colors[messenger]
     }
 
-    const getMessengerIcon = (): any => {
+    const getMessengerIcon = (): React.ReactNode => {
         return <MessageCircle className="h-4 w-4 text-white" />
     }
 
-    const getMessageStatus = (status: Message['status']): any => {
+    const getMessageStatus = (status: Message['status']): React.ReactNode => {
         if (status === 'read') return <CheckCheck className="h-4 w-4 text-blue-500" />
         if (status === 'delivered') return <CheckCheck className="h-4 w-4 text-gray-400" />
         return <Check className="h-4 w-4 text-gray-400" />
@@ -153,7 +152,20 @@ const ChatsPage = () => {
         <div className="p-6">
             <div className="mb-4">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-3">Сообщения</h2>
-               
+                <div className="flex items-center gap-2 max-w-md">
+                    <div className="relative flex-1">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                        <Input
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Поиск по чатам"
+                            className="pl-9"
+                        />
+                    </div>
+                    <Button variant="outline" onClick={() => setSearchQuery('')}>
+                        Сбросить
+                    </Button>
+                </div>
             </div>
 
             <div className="grid grid-cols-12 gap-4 h-[calc(100vh-220px)]">
@@ -232,6 +244,9 @@ const ChatsPage = () => {
 
                                     <div className="flex items-center gap-2">
                                         
+                                        <Button variant="ghost" size="sm" onClick={() => openClientCard(selectedChat.id)}>
+                                            <User className="h-5 w-5" />
+                                        </Button>
                                         <Button variant="ghost" size="sm">
                                             <Phone className="h-5 w-5" />
                                         </Button>
@@ -418,4 +433,3 @@ const ChatsPage = () => {
 }
 
 export default ChatsPage
-

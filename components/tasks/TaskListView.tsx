@@ -5,11 +5,6 @@ interface TaskListViewProps {
   tasks: Task[]
 }
 
-interface TimeSlot {
-  time: string
-  tasks: Task[]
-}
-
 const HOURS = [
   '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', 
   '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM'
@@ -119,13 +114,14 @@ const mockEvents = [
 
 export function TaskListView({ tasks }: TaskListViewProps) {
   const currentTime = new Date().getHours() - 8 // Assuming 8 AM start
+  const totalTasks = tasks.length
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
         <h3 className="font-semibold text-gray-900">Список</h3>
-        <span className="text-sm text-gray-500">Сегодня</span>
+        <span className="text-sm text-gray-500">Сегодня • задач: {totalTasks}</span>
       </div>
 
       {/* Calendar Grid */}

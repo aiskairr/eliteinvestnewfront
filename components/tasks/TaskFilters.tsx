@@ -1,5 +1,4 @@
 import { TaskStatus } from '@/types/task'
-import { Badge } from '@/components/ui/badge'
 
 interface TaskFiltersProps {
   activeStatus: TaskStatus | 'all'

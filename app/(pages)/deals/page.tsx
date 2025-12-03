@@ -45,7 +45,7 @@ const statusMeta: Record<
 }
 
 export default function DealsPage() {
-    const [selectedMonth, setSelectedMonth] = useState('Ноябрь, 2025')
+    const [selectedMonth] = useState('Ноябрь, 2025')
     const [deals, setDeals] = useState<Deal[]>(mockDeals)
     const [draggedDeal, setDraggedDeal] = useState<{ deal: Deal; fromStatus: DealStatus } | null>(null)
     const [isStageDialogOpen, setIsStageDialogOpen] = useState(false)
