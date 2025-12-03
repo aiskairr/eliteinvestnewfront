@@ -55,7 +55,11 @@ const SidebarItem = ({ icon, label, href, active, collapsed }: SidebarItemProps)
     </Link>
 )
 
-export const Sidebar = () => {
+interface SidebarProps {
+    activeIndex?: number
+}
+
+export const Sidebar = ({ activeIndex }: SidebarProps) => {
     const pathname = usePathname()
     const [isCollapsed, setIsCollapsed] = useState(false)
     
@@ -92,16 +96,22 @@ export const Sidebar = () => {
 
             {/* Navigation */}
             <nav className="flex-1 py-4 overflow-y-auto">
-                {menuItems.map((item) => (
+                {menuItems.map((item, idx) => {
+                    const isActive = typeof activeIndex === 'number'
+                        ? activeIndex === idx
+                        : pathname?.startsWith(item.href)
+
+                    return (
                     <SidebarItem
                         key={item.href}
                         icon={item.icon}
                         label={item.label}
                         href={item.href}
                         collapsed={isCollapsed}
-                        active={pathname?.startsWith(item.href)}
+                        active={isActive}
                     />
-                ))}
+                    )
+                })}
             </nav>
 
             {/* Logout */}
