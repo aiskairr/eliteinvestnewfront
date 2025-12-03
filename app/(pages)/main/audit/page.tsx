@@ -22,8 +22,20 @@ import {
 import { Input } from '@/components/ui/input'
 import { Sidebar } from '@/components/Sidebar';
 
+type Status = 'success' | 'warning' | 'danger' | 'info'
+
+interface AuditLog {
+    id: string
+    action: string
+    description: string
+    date: string
+    user: string
+    type: string
+    status: Status
+}
+
 const AuditPage = () => {
-    const auditLogs = [
+    const auditLogs: AuditLog[] = [
         {
             id: '1',
             action: 'Создание',
@@ -94,8 +106,6 @@ const AuditPage = () => {
         danger:  'bg-red-100 text-red-800',
         info:    'bg-blue-100 text-blue-800',
     } as const
-
-    type Status = keyof typeof STYLES
 
     function getStatusBadge(status: Status) {
         return STYLES[status]
