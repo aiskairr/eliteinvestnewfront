@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from 'react'
+import { Suspense, useMemo, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -28,7 +28,7 @@ const statusIcons: Record<TaskStatus, string> = {
   overdue: '⏰',
 }
 
-export default function CreateTaskPage() {
+function CreateTaskPageInner() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const statusParam = (searchParams?.get('status') as TaskStatus) || 'new'
@@ -279,5 +279,13 @@ export default function CreateTaskPage() {
         </form>
       </div>
     </div>
+  )
+}
+
+export default function CreateTaskPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Загрузка...</div>}>
+      <CreateTaskPageInner />
+    </Suspense>
   )
 }
